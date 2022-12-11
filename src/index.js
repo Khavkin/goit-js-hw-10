@@ -32,7 +32,7 @@ function showCountryInfo(country) {
   countryInfo.innerHTML = '';
 
   const lang = Object.values(country.languages).join(',');
-  const markup = `<p class='country-info__name'><img src='${country.flags.svg}' width=36 height=36> ${country.name.official}</p><p><strong>Capital:</strong> ${country.capital}</p><p><strong>Population:</strong> ${country.population}</p><p><strong>Languages:</strong> ${lang}</p>`;
+  const markup = `<p class='country-info__name'><img src='${country.flags.svg}' alt='Flag of ${country.name.official}' width=36 height=36> ${country.name.official}</p><p><strong>Capital:</strong> ${country.capital}</p><p><strong>Population:</strong> ${country.population}</p><p><strong>Languages:</strong> ${lang}</p>`;
   countryInfo.insertAdjacentHTML('afterbegin', markup);
   countryList.classList.add('is-hidden');
   countryInfo.classList.remove('is-hidden');
@@ -40,7 +40,7 @@ function showCountryInfo(country) {
 function showCountriesList(countriesList) {
   const markup = countriesList
     .map(country => {
-      return `<li class='country-list__item'><img src='${country.flags.svg}' width=30 height=30>${country.name.official}</li>`;
+      return `<li class='country-list__item'><img src='${country.flags.svg}' alt='Flag of ${country.name.official}'  width=30 height=30>${country.name.official}</li>`;
     })
     .join('');
   countryList.insertAdjacentHTML('afterbegin', markup);
